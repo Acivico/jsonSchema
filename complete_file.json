@@ -4,25 +4,26 @@
     "title": "VRE",
     "description": "",
     "type": "object",
-    "properties": {
-      "allOf":[
-        {"$ref":"basic_file.json"},
-        { "properties": {
-          "submission_file":{
-            "type":"string",
-            "format":"path"
-          },
-          "tool":{
-            "type":"string",
-            "enum":[
-              "wget"
-            ]
-          },
+    "basic_file": {
+      "allOf": [
+        {"$ref":"basic_file.json#/definitions/basic_file"},
+        {"properties":{
           "log_file":{
             "type":"string",
             "format":"path"        
+        },
+        "submission_file":{
+          "type":"string",
+          "format":"path"
+        },
+        "tool":{
+          "type":"string",
+          "enum":[
+            "wget"
+          ]
         }
         }}
       ]
     }
-  }
+        
+    }
