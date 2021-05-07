@@ -1,12 +1,12 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "basic_file.json",
   "title": "VRE",
   "description": "",
   "type": "object",
   "properties": {
       "definitions": {
           "basic_file":{
+            "$id":"#basic_file",
             "type":"object",
             "properties":{
               "_id":{
@@ -155,7 +155,7 @@
               "source_url":{
                 "type":"string",
                 "format":"uri",
-                "pattern":"^https:\/\/"      
+                "pattern":"^(https?):\/\/"     
                 
               },
               "sources":{
