@@ -64,7 +64,7 @@
 		"compressed": {
 			"type": "string",
 			"enum": [
-				"null",
+				null,
 				"gzip",
 				"zip"
 			]
