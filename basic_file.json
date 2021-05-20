@@ -7,6 +7,9 @@
   "properties": {
 	  "basic_file":{
 	    "type":"object",
+            "options": {
+		   "hidden": true
+	    },
 	    "properties":{
 	      "_id":{
 	        "type":"string",
