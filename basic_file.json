@@ -72,7 +72,6 @@
 			"data_type": {
 				"type": "array",
 				"items": {
-					"type": "string",
 					"enum": [
 						"chromatin_3dmodel",
 						"chromatin_3dmodel_ensemble",
