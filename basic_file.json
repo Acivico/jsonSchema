@@ -9,7 +9,10 @@
 	    "type":"object",
 	    "properties":{
 	      "_id":{
-	        "type":"string"      
+	        "type":"string",
+		"options": {
+		   "hidden": true
+		}
 	      },
 	      "expiration":{
 	          "type":"string",
