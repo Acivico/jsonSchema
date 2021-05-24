@@ -129,7 +129,8 @@
 				"tool_intermediate_file",
 				"tool_statistics",
 				"tss_classification_by_nucleosomes"
-			]
+			],
+			"default": "configuration_file"
 		},
 		"description": {
 			"type": "string"
