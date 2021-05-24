@@ -69,10 +69,8 @@
 			]
 		},
 		"data_type": {
-			"data_type": {
-				"type": "array",
-				"items": {					
-					"enum": [
+				"type": "string",				
+				"enum": [
 						"chromatin_3dmodel",
 						"chromatin_3dmodel_ensemble",
 						"chromatin_compartments",
@@ -131,10 +129,8 @@
 						"tool_intermediate_file",
 						"tool_statistics",
 						"tss_classification_by_nucleosomes"
-					]
-				}
-			}
-		},
+					]				
+			},
 		"description": {
 			"type": "string"
 		},
