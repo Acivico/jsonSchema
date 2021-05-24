@@ -69,9 +69,9 @@
 			]
 		},
 		"data_type": {
-			"data_type": {
 				"type": "array",
 				"items": {
+					"type": "string",
 					"enum": [
 						"chromatin_3dmodel",
 						"chromatin_3dmodel_ensemble",
@@ -133,8 +133,7 @@
 						"tss_classification_by_nucleosomes"
 					]
 				}
-			}
-		},
+			},
 		"description": {
 			"type": "string"
 		},
