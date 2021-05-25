@@ -184,7 +184,7 @@
 		        	"upload": {
                 		"upload_handler": "testUploadHandler"
                 		},
-				"hidden":false
+				"hidden":true
 	      		}
 		}
 	},
