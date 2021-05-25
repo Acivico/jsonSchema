@@ -173,8 +173,7 @@
 		},
 		"cloudName": {
 			"type": "string"
-		}
-	},
+		},
 	"required": [
 		"owner",
 		"path"
