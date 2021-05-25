@@ -177,6 +177,15 @@
 		},
 		"cloudName": {
 			"type": "string"
+		},
+		"upload_fail": {
+			"type": "string",              		
+              		"options": {
+		        	"upload": {
+                		"upload_handler": "testUploadHandler"
+                		},
+				"hidden":false
+	      		}
 		}
 	},
 	"required": [
