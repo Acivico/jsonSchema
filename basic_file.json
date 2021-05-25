@@ -143,7 +143,13 @@
 		},
 		"input_files": {
 			"type": "array",
-			"uniqueItems": true
+			"uniqueItems": true,
+			"options" : {
+                		"upload": {
+                  		"upload_handler": "inputFile"
+                		}
+              		}
+				
 		},
 		"repository": {
 			"type": "string"
