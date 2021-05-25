@@ -1,7 +1,7 @@
 {
-	"id": "https://github.com/Acivico/jsonSchema/basic_file-form-json-schema",
+	"id": "https://raw.githubusercontent.com/Acivico/jsonSchema/main/basic_file.json",
 	"$schema": "http://json-schema.org/draft-04/schema#",
-	"title": "VRE",
+	"title": "Virtual Research Environment",
 	"description": "",
 	"type": "object",
 	"properties": {
@@ -145,11 +145,10 @@
 			"type": "array",
 			"uniqueItems": true,
 			"options" : {
-                		"upload": {
-                  		"upload_handler": "inputFile"
-                		}
-              		}
-				
+                "upload": {
+                "upload_handler": "inputFile"
+                }
+             }
 		},
 		"repository": {
 			"type": "string"
