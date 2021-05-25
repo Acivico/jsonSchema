@@ -1,7 +1,7 @@
 {
 	"id": "https://raw.githubusercontent.com/Acivico/jsonSchema/main/basic_file.json",
 	"$schema": "http://json-schema.org/draft-04/schema#",
-	"title": " ",
+	"title": "VRE",
 	"description": "",
 	"type": "object",
 	"properties": {
