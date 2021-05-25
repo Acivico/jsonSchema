@@ -143,12 +143,8 @@
 		},
 		"input_files": {
 			"type": "array",
-			"uniqueItems": true,
-			"options" : {
-                "upload": {
-                "upload_handler": "inputFile"
-                }
-             }
+			"uniqueItems": true
+             	}
 		},
 		"repository": {
 			"type": "string"
@@ -177,15 +173,6 @@
 		},
 		"cloudName": {
 			"type": "string"
-		},
-		"upload_fail": {
-			"type": "string",              		
-              		"options": {
-		        	"upload": {
-                		"upload_handler": "testUploadHandler"
-                		},
-				"hidden": true
-	      		}
 		}
 	},
 	"required": [
