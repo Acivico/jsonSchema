@@ -38,7 +38,8 @@
 			}
 		},
 		"owner": {
-			"type": "string"
+			"type": "string",
+			"readOnly": true
 		},
 		"parentDir": {
 			"type": "string"
