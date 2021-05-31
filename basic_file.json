@@ -47,7 +47,6 @@
 		"path": {
 			"type": "string",
 			"format": "path",
-			"minLength": 4,
 			"pattern": "^(\/[^\/]+)+$"
 		},
 		"project": {
