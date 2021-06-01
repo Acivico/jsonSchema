@@ -52,9 +52,11 @@
 		},
 		"project": {
 			"type": "string",
+			"required": true,
 			"minLength": 4
 		},
 		"size": {
+			"required": true,
 			"type": "integer"
 		},
 		"type": {
