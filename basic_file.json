@@ -51,7 +51,8 @@
 			"pattern": "^(\/[^\/]+)+$"
 		},
 		"project": {
-			"type": "string"
+			"type": "string",
+			"minLength": 4
 		},
 		"size": {
 			"type": "integer"
