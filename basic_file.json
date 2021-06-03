@@ -6,10 +6,7 @@
 	"type": "object",
 	"properties": {
 		"_id": {
-			"type": "string",
-			"options": {
-				"hidden": true
-			}
+			"type": "string"
 		},
 		"expiration": {
 			"type": "string",
@@ -51,12 +48,9 @@
 			"pattern": "^(\/[^\/]+)+$"
 		},
 		"project": {
-			"type": "string",
-			"required": true,
-			"minLength": 4
+			"type": "string"
 		},
-		"size": {
-			"required": true,
+		"size": {			
 			"type": "integer"
 		},
 		"type": {
