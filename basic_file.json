@@ -148,8 +148,7 @@
 		},
 		"source_url": {
 			"type": "string",
-			"format": "uri",
-			"pattern": "^(https?):\/\/"
+			"format": "uri"
 		},
 		"sources": {
 			"type": "array",
