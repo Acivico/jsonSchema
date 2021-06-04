@@ -44,8 +44,7 @@
 		"path": {
 			"type": "string",
 			"format": "path",
-			"required": true,
-			"pattern": "(\/[^\/]+)+$"
+			"required": true			
 		},
 		"project": {
 			"type": "string"
