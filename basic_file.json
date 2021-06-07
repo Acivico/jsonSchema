@@ -13,26 +13,8 @@
 			"format": "data-time"
 		},
 		"mtime": {
-			"type": "object",
-			"required": [
-				"$date"
-			],
-			"properties": {
-				"$date": {
-					"type": "object",
-					"required": [
-						"$numberLong"
-					],
-					"properties": {
-						"$numberLong": {
-							"type": "string"
-						}
-					}
-				}
-			},
-			"options": {
-				"hidden": false
-			}
+			"type": "string",
+			"format": "data-time"
 		},
 		"owner": {
 			"type": "string",
