@@ -33,8 +33,6 @@
 			"options": {
 				"hidden": false
 			}
-			"type": "string",
-			"format": "data-time"
 		},
 		"owner": {
 			"type": "string",
