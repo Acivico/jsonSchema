@@ -26,12 +26,12 @@
 		"path": {
 			"type": "string",
 			"format": "path",
-			"required": true
+			"required": true			
 		},
 		"project": {
 			"type": "string"
 		},
-		"size": {
+		"size": {			
 			"type": "integer"
 		},
 		"type": {
@@ -49,30 +49,20 @@
 			]
 		},
 		"data_type": {
-			"type": "array",
-			"format": "select",
-			"uniqueItems": true,
-			"items": {
-				"$ref": "#/definitions/itemOptions"
-			},
-			"definitions": {
-				"itemOptions": {
-					"type": "string",
-					"enum": [
-						"structure",
-						"tool_intermediate_file",
-						"tool_statistics",
-						"tss_classification_by_nucleosomes"
-					],
-					"options": {
-						"enum_titles": [
-							"Structure",
-							"Tool intermediate file",
-							"Tool statistics",
-							"Classification nucleosomes"
-						]
-					}
-				}
+			"type": "string",
+			"enum": [
+				"structure",
+				"tool_intermediate_file",
+				"tool_statistics",
+				"tss_classification_by_nucleosomes"
+			],
+			"options":{
+				"enum_titles":[
+					"Structure",
+					"Tool intermediate file",
+					"Tool Statistics",
+					"Classification nucleosomes"
+				]
 			}
 		},
 		"description": {
@@ -86,7 +76,7 @@
 		},
 		"input_files": {
 			"type": "array",
-			"uniqueItems": true
+			"uniqueItems": true		
 		},
 		"repository": {
 			"type": "string"
