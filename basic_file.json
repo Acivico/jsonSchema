@@ -57,7 +57,7 @@
 			},
 			"definitions": {
 				"itemOptions": {
-					"type": "integer",
+					"type": "string",
 					"enum": [
 						"structure",
 						"tool_intermediate_file",
