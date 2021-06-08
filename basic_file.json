@@ -110,7 +110,7 @@
 				"tool_statistics",
 				"tss_classification_by_nucleosomes"
 			],
-			"opciones":[
+			"choices":[
 				["tss_classification_by_nucleosomes","esta es la ultima"],
 				["tool_intermediate_file","esta es la anterior a la ultima"],
 				["tool_statistics","esta es otro ejemplo"]
