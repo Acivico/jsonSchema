@@ -26,12 +26,12 @@
 		"path": {
 			"type": "string",
 			"format": "path",
-			"required": true			
+			"required": true
 		},
 		"project": {
 			"type": "string"
 		},
-		"size": {			
+		"size": {
 			"type": "integer"
 		},
 		"type": {
@@ -49,11 +49,31 @@
 			]
 		},
 		"data_type": {
-			"type": "string",
-			"enum": [
-				{"title":"Chromatin 3D Model","value":"chromatin_3dmodel"},				
-				{"title":"Structure","value":"structure"}
-			]		
+			"type": "array",
+			"format": "select",
+			"uniqueItems": true,
+			"items": {
+				"$ref": "#/definitions/itemOptions"
+			},
+			"definitions": {
+				"itemOptions": {
+					"type": "integer",
+					"enum": [
+						"structure",
+						"tool_intermediate_file",
+						"tool_statistics",
+						"tss_classification_by_nucleosomes"
+					],
+					"options": {
+						"enum_titles": [
+							"Structure",
+							"Tool intermediate file",
+							"Tool statistics",
+							"Classification nucleosomes"
+						]
+					}
+				}
+			}
 		},
 		"description": {
 			"type": "string"
@@ -66,7 +86,7 @@
 		},
 		"input_files": {
 			"type": "array",
-			"uniqueItems": true		
+			"uniqueItems": true
 		},
 		"repository": {
 			"type": "string"
