@@ -10,11 +10,17 @@
 		},
 		"expiration": {
 			"type": "string",
-			"format": "data-time"
+			"format": "data-time",
+			"options": {
+				"hidden": true
+			}
 		},
 		"mtime": {
 			"type": "string",
-			"format": "data-time"
+			"format": "data-time",
+			"options": {
+				"hidden": true
+			}
 		},
 		"owner": {
 			"type": "string",
@@ -32,7 +38,10 @@
 			"type": "string"
 		},
 		"size": {
-			"type": "integer"
+			"type": "integer",			
+			"options": {
+				"hidden": true
+			}			
 		},
 		"type": {
 			"type": "string",
