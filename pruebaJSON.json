@@ -1,0 +1,17 @@
+{	
+    "_id":"ECSHUSER60af81d9452bc_60b7519dc813d3.27458541",
+    "expiration":{"$date":{"$numberLong":"1638351564000"}},
+    "mtime":{"$date":{"$numberLong":"1622626764000"}},
+    "owner":"ECSHUSER60af81d9452bc",
+    "parentDir":"ECSHUSER60af81d9452bc_60af81d9602339.00180596",
+    "path":"ECSHUSER60af81d9452bc\/__PROJ60af81d9452c17.77939678\/uploads\/pruebas.txt",
+    "project":"__PROJ60af81d9452c17.77939678",
+    "size":30,
+    "validated":1,
+    "data_type":"structure",
+    "description":"description",
+    "format":"TXT",
+    "input_files":[0],
+    "taxon_id":0,
+    "visible":true
+}
