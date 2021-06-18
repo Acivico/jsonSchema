@@ -9,17 +9,47 @@
 			"type": "string"
 		},
 		"expiration": {
-			"type": "string",
-			"format": "data-time",
+			"type": "object",
+			"required": [
+				"$date"
+			],
+			"properties": {
+				"$date": {
+					"type": "object",
+					"required": [
+						"$numberLong"
+					],
+					"properties": {
+						"$numberLong": {
+							"type": "string"
+						}
+					}
+				}
+			},
 			"options": {
-				"hidden": true
+				"hidden": false
 			}
 		},
 		"mtime": {
-			"type": "string",
-			"format": "data-time",
+			"type": "object",
+			"required": [
+				"$date"
+			],
+			"properties": {
+				"$date": {
+					"type": "object",
+					"required": [
+						"$numberLong"
+					],
+					"properties": {
+						"$numberLong": {
+							"type": "string"
+						}
+					}
+				}
+			},
 			"options": {
-				"hidden": true
+				"hidden": false
 			}
 		},
 		"owner": {
@@ -31,9 +61,8 @@
 		},
 		"path": {
 			"type": "string",
-			"format": "path",
-			"required": true
-		},
+			"format": "path"
+        },
 		"project": {
 			"type": "string"
 		},
@@ -253,11 +282,7 @@
 			}
 		},
 		"validated": {
-			"type": "string",
-			"enum": [
-				"TRUE",
-				"FALSE"
-			]
+			"type": "integer"
 		},
 		"visible": {
 			"type": "boolean",
@@ -266,5 +291,6 @@
 		"cloudName": {
 			"type": "string"
 		}
-	}
+	},
+	"required": ["path"]  
 }
