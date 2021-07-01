@@ -1,6 +1,8 @@
 {
 	"id": "https://raw.githubusercontent.com/Acivico/jsonSchema/main/basic_file.json",
 	"$schema": "http://json-schema.org/draft-07/schema#",
+	"title": "File information: ",
+	"description": "",
 	"type": "object",
 	"properties": {
 		"_id": {
