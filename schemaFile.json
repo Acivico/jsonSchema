@@ -1,0 +1,110 @@
+{
+    "id": "",
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "title": "VRE-DEV Schema file data",
+    "description": "",
+    "type": "object",
+    "properties": {
+        "name": {
+            "type": "string",
+            "description": "File name",
+            "readOnly": true
+        },
+        "size": {
+            "type": "int",
+            "description": "File Size",
+            "readOnly": true
+        },
+        "atime": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Created Time",
+            "readOnly": true
+        },
+        "mtime": {
+            "type": "string",
+            "format": "data-time",
+            "description": "Updated Time",
+            "readOnly": true
+        },
+        "chechsums": {
+            "type": "array",
+            "minItems": 1,
+            "properties": {
+                "checksum":{
+                    "type":"string"
+                },
+                "type":{
+                    "type":"string",
+                    "enum": [
+                        "sha-256",
+                        "sha-256-128",
+                        "sha-256-120",
+                        "sha-256-96",
+                        "sha-256-64",
+                        "sha-256-32",
+                        "sha-384",
+                        "sha-512",
+                        "sha3-224",
+                        "sha3-256",
+                        "sha3-384",
+                        "sha3-512"
+                    ]
+                }
+            },
+            "description": "______TODO____",
+            "readOnly": true
+        },
+        "path": {
+            "type": "string",
+            "description": "File Path",
+            "readOnly": true
+        },
+        "files": {
+            "type" : "array",
+            "items": {
+                "type" : "string"
+            },
+            "description": "Contents"
+        },
+        "parentDir":{
+            "type":"string",
+            "description": "Parent directory",
+            "readOnly" : true
+        },
+        "type": {
+            "type": "string",
+            "enum": [
+                "file",
+                "dir"
+            ],
+            "description": "Type if it is directory or file"
+        },
+        "project": {
+            "type": "string",
+            "readOnly": true,
+            "description": "_____TODO_____"
+        },
+        "owner":{
+            "type":"string",
+            "readOnly":true,
+            "description": "File Owner"
+        },
+        "expiration":{
+            "type":"string",
+            "format":"date-time",
+            "readOnly":true,
+            "description": "Expiration date"
+        },
+        "source_url": {
+			"type": "string",
+			"format": "uri",
+            "description": "______TODO______"
+		},
+        "uri" : {
+            "type" : "string",
+            "format" : "uri",
+            "description": "URL"
+        }
+    }
+}
