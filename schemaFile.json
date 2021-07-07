@@ -52,7 +52,7 @@
                     ]
                 }
             },
-            "description": "______TODO____",
+            "description": "The hex-string encoded checksum for the data",
             "readOnly": true
         },
         "path": {
