@@ -265,5 +265,7 @@
 		"cloudName": {
 			"type": "string"
 		}
-	}
+	},
+	"required":["data_type"]
+	
 }
