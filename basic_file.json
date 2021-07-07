@@ -5,14 +5,17 @@
 	"type": "object",
 	"properties": {
 		"_id": {
-			"type": "string"
+			"type": "string",
+			"title": "Identificador"
 		},
 		"expiration": {
 			"type": "string",
 			"format": "data-time",
 			"options": {
 				"hidden": true
-			}
+			},
+			"title": "Fecha de expiración"
+			
 		},
 		"mtime": {
 			"type": "string",
