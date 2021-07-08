@@ -187,30 +187,30 @@
         "description": {
 			"type": "string",
 			"description": "File Description"
-			"title" : "Description"
+			"title": "Description"
 		},
         "self_uri" : {
             		"type":"string",
             		"format":"uri",
             		"readOnly":true,
 			"description": "____TODO____",
-			"title" : "Self URI"
+			"title": "Self URI"
 		
         },
         "version":{
             		"type":"string",
 			"description": "Version",
-			"title" : "Version"
+			"title": "Version"
         },
         "mime_type":{
             		"type":"string",
 			"description": "____TODO____",
-			"title" : "Mime type"
+			"title": "Mime type"
         },
         "community_specific":{
 			"type":"object",
 			"description": "____TODO____",
-			"title" : "Community Specific"
+			"title": "Community Specific"
             
         },
         "compressed": {
@@ -218,12 +218,12 @@
 			"enum": [
 				"gzip",
 				"zip",
-                "gz",
-                "tar",
-                "rar"
+                		"gz",
+                		"tar",
+                		"rar"
 			],
 			"description": "File compression type",
-			"title" : "Compressed"
+			"title": "Compressed"
 		},
         "protected":{
 			"type":"array",
@@ -234,7 +234,7 @@
 				{"associated_files"}
 			],
 			"description": "____TODO____",
-			"title" : "Protected"
+			"title": "Protected"
         }
     }
 }
