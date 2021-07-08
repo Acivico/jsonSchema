@@ -8,26 +8,30 @@
         "name": {
             "type": "string",
             "description": "File name",
-            "readOnly": true
+            "readOnly": true,
+            "title": "Name"
         },
         "size": {
             "type": "int",
             "description": "File Size",
-            "readOnly": true
+            "readOnly": true,
+            "title": "Size"
         },
         "atime": {
             "type": "string",
             "format": "date-time",
-            "description": "Created Time",
+            "title": "Creation time",
+            "description": "",
             "readOnly": true
         },
         "mtime": {
             "type": "string",
             "format": "data-time",
-            "description": "Updated Time",
+            "title": "Modification time",
+            "description": "",
             "readOnly": true
         },
-        "chechsums": {
+        "checksums": {
             "type": "array",
             "minItems": 1,
             "properties": {
@@ -53,11 +57,13 @@
                 }
             },
             "description": "The hex-string encoded checksum for the data",
+            "title": "Checksums",
             "readOnly": true
         },
         "path": {
             "type": "string",
             "description": "File Path",
+            "title": "Path",
             "readOnly": true
         },
         "files": {
@@ -65,11 +71,13 @@
             "items": {
                 "type" : "string"
             },
-            "description": "Contents"
+            "description": "Contents",
+            "title": "Files"
         },
         "parentDir":{
             "type":"string",
-            "description": "Parent directory",
+            "description": "",
+            "title": "Parent Directory",
             "readOnly" : true
         },
         "type": {
@@ -78,33 +86,39 @@
                 "file",
                 "dir"
             ],
-            "description": "Type if it is directory or file"
+            "description": "Type if it is directory or file",
+            "title": "Type"
         },
         "project": {
             "type": "string",
             "readOnly": true,
-            "description": "_____TODO_____"
+            "description": "_____TODO_____",
+            "title": "Project"
         },
         "owner":{
             "type":"string",
             "readOnly":true,
-            "description": "File Owner"
+            "description": "File Owner",
+            "title": "Owner"
         },
         "expiration":{
             "type":"string",
             "format":"date-time",
             "readOnly":true,
-            "description": "Expiration date"
+            "description": "Expiration date",
+            "title": "Expiration"
         },
         "source_url": {
 			"type": "string",
 			"format": "uri",
-            "description": "______TODO______"
+            "description": "______TODO______",
+            "title": "Source URL"
 		},
         "uri" : {
             "type" : "string",
             "format" : "uri",
-            "description": "URL"
+            "description": "",
+            "title": "URI"
         }
     }
 }
