@@ -4,7 +4,7 @@
     "title": "VRE-DEV Schema Metadata",
     "description": "",
     "type": "object",
-    "oneOf":[
+    "anyOf":[
         {
             "properties": {
                 "data_type":{
