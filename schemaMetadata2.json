@@ -1,0 +1,85 @@
+{
+    "id": "",
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "title": "VRE-DEV Schema Metadata",
+    "description": "",
+    "type": "object",
+    "oneOf":[
+        {
+            "properties": {
+                "data_type":{
+                    "enum":["chromatin_3dmodel"]
+                },
+                "file_type":{
+                    "enum": [
+                        "PARMTOP",
+                        "PDB",
+                        "PDF",
+                        "PICKLE",
+                        "PNG",
+                        "RDATA",
+                        "RST",
+                        "SA",
+                        "TAR",
+                        "TBI"
+                    ]
+
+                }
+            }
+        }
+    ],
+    "properties": {
+        "description": {
+			"type": "string",
+			"description": "A human readable description of the file",
+			"title": "Description"
+		},
+        "self_uri" : {
+            		"type":"string",
+            		"format":"uri",
+            		"readOnly":true,
+			"description": "____TODO____",
+			"title": "Self URI"
+		
+        },
+        "version":{
+            		"type":"string",
+			"description": "A string representing a version",
+			"title": "Version"
+        },
+        "mime_type":{
+            		"type":"string",
+			"description": "____TODO____",
+			"title": "Mime type"
+        },
+        "community_specific":{
+			"type":"object",
+			"description": "____TODO____",
+			"title": "Community Specific"
+            
+        },
+        "compressed": {
+			"type": "string",
+			"enum": [
+				"gzip",
+				"zip",
+                		"gz",
+                		"tar",
+                		"rar"
+			],
+			"description": "Type of compression used",
+			"title": "Compressed"
+		},
+        "protected":{
+			"type":"array",
+	    		"items": [
+				{"arguments" : {
+					"type" : "object"
+				}},
+				{"associated_files":""}
+			],
+			"description": "____TODO____",
+			"title": "Protected"
+        }
+    }
+}
