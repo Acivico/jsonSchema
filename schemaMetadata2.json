@@ -4,39 +4,17 @@
     "title": "VRE-DEV Schema Metadata",
     "description": "",
     "type": "object",
-    "properties": {
+    "properties": {  
         "data_type":{
-            "type":"string",
+            "type":"object",
             "oneOf":[
                 {
-                    "properties": {
+                    "properties":{
                         "data_type":{
-                            "enum":["chromatin_3dmodel"]
+                            "enum": ["chromatin_3dmodel"]
                         },
                         "file_type":{
-                            "enum": [
-                                "PARMTOP",
-                                "PDB",
-                                "PDF",
-                                "PICKLE",
-                                "PNG",
-                                "RDATA",
-                                "RST",
-                                "SA",
-                                "TAR",
-                                "TBI"
-                            ]
-        
-                        }
-                    }
-                },
-                {
-                    "properties": {
-                        "data_type":{
-                            "enum": ["chromatin_3dmodel_ensemble"]
-                        },
-                        "file_type":{
-                            "enum": [
+                            "enum":[
                                 "AMB",
                                 "ANN",
                                 "BAI",
@@ -47,6 +25,30 @@
                                 "BT2",
                                 "BW",
                                 "BWT"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "properties":{
+                        "data_type":{
+                            "enum": ["chromatin_3dmodel_ensemble"]
+                        },
+                        "file_type":{
+                            "enum":[
+                                "CPT",
+                                "CSV",
+                                "DCD",
+                                "FASTA",
+                                "FASTQ",
+                                "GEM",
+                                "GFF",
+                                "GFF3",
+                                "GTF",
+                                "HDF5",
+                                "IDX",
+                                "JSON",
+                                "LIF"
                             ]
                         }
                     }
