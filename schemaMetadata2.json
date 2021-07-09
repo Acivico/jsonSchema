@@ -1,55 +1,58 @@
 {
     "id": "",
-    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$schema": "http://json-schema.org/draft-04/schema#",
     "title": "VRE-DEV Schema Metadata",
     "description": "",
     "type": "object",
-    "anyOf":[
-        {
-            "properties": {
-                "data_type":{
-                    "enum":["chromatin_3dmodel"]
-                },
-                "file_type":{
-                    "enum": [
-                        "PARMTOP",
-                        "PDB",
-                        "PDF",
-                        "PICKLE",
-                        "PNG",
-                        "RDATA",
-                        "RST",
-                        "SA",
-                        "TAR",
-                        "TBI"
-                    ]
-
-                }
-            }
-        },
-        {
-            "properties": {
-                "data_type":{
-                    "enum": ["chromatin_3dmodel_ensemble"]
-                },
-                "file_type":{
-                    "enum": [
-                        "AMB",
-                        "ANN",
-                        "BAI",
-                        "BAM",
-                        "BB",
-                        "BED",
-                        "BEDGRAPH",
-                        "BT2",
-                        "BW",
-                        "BWT"
-                    ]
-                }
-            }
-        }
-    ],
     "properties": {
+        "data_type":{
+            "type":"string",
+            "oneOf":[
+                {
+                    "properties": {
+                        "data_type":{
+                            "enum":["chromatin_3dmodel"]
+                        },
+                        "file_type":{
+                            "enum": [
+                                "PARMTOP",
+                                "PDB",
+                                "PDF",
+                                "PICKLE",
+                                "PNG",
+                                "RDATA",
+                                "RST",
+                                "SA",
+                                "TAR",
+                                "TBI"
+                            ]
+        
+                        }
+                    }
+                },
+                {
+                    "properties": {
+                        "data_type":{
+                            "enum": ["chromatin_3dmodel_ensemble"]
+                        },
+                        "file_type":{
+                            "enum": [
+                                "AMB",
+                                "ANN",
+                                "BAI",
+                                "BAM",
+                                "BB",
+                                "BED",
+                                "BEDGRAPH",
+                                "BT2",
+                                "BW",
+                                "BWT"
+                            ]
+                        }
+                    }
+                }
+            ]
+        },
         "description": {
 			"type": "string",
 			"description": "A human readable description of the file",
