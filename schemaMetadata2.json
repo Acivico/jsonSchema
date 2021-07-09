@@ -26,6 +26,27 @@
 
                 }
             }
+        },
+        {
+            "properties": {
+                "data_type":{
+                    "enum": ["chromatin_3dmodel_ensemble"]
+                },
+                "file_type":{
+                    "enum": [
+                        "AMB",
+                        "ANN",
+                        "BAI",
+                        "BAM",
+                        "BB",
+                        "BED",
+                        "BEDGRAPH",
+                        "BT2",
+                        "BW",
+                        "BWT"
+                    ]
+                }
+            }
         }
     ],
     "properties": {
