@@ -7,7 +7,7 @@
     "properties": {  
         "data_type":{
             "type":"object",
-            "oneOf":[
+            "allOf":[
                 {
                     "properties":{
                         "data_type":{
