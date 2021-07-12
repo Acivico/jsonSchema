@@ -70,7 +70,7 @@
 			"description": "Data type",
 			"title": "Data type"
 		},
-		"file_type": {
+		"list": {
 			"type": "object",
 			"required": "file_type",
 			"switch": [
