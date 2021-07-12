@@ -71,7 +71,8 @@
 			"title": "Data type"
 		},
 		"file_type": {
-			"type": "string",
+			"type": "object",
+			"required": "file_type",
 			"switch": [
 				{
 					"if": {
