@@ -186,7 +186,7 @@
 		},
         "description": {
 			"type": "string",
-			"description": "File Description"
+			"description": "File Description",
 			"title": "Description"
 		},
         "self_uri" : {
