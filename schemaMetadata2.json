@@ -82,7 +82,7 @@
 					"then": {
 						"properties": {
 							"file_type": {
-								"type": "array",
+								"type": "string",
 								"enum": [
 									"AMB",
 									"ANN",
@@ -108,7 +108,7 @@
 					"then": {
 						"properties": {
 							"file_type": {
-								"type": "array",
+								"type": "string",
 								"enum": [
 									"CPT",
 									"CSV",
