@@ -71,7 +71,7 @@
 			"title": "Data type"
 		},
 		"list": {
-			"type": "object",
+			"type": "string",
 			"required": "file_type",
 			"switch": [
 				{
