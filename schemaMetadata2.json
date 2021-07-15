@@ -132,6 +132,11 @@
 			"description": "Data type to which the file belongs",
 			"title": "Data type"
 		},
+	"file_type": {
+			"type": "string",
+			"title": "File type",
+			"description": "The specific kind of file"
+	},
         "description": {
 			"type": "string",
 			"description": "A human readable description of the file",
