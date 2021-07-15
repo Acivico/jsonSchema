@@ -133,7 +133,7 @@
 			"title": "Data type"
 		},
 	"file_type": {
-			"type": "string",
+			"type": "object",
 			"title": "File type",
 			"description": "The specific kind of file"
 	},
