@@ -133,8 +133,9 @@
 			"title": "Data type"
 		},
 	"file_type": {
-			"type": "object",
+			"type": "string",
 			"title": "File type",
+			"enum":[],
 			"description": "The specific kind of file"
 	},
         "description": {
