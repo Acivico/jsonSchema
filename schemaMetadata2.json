@@ -135,7 +135,31 @@
 	"file_type": {
 			"type": "string",
 			"title": "File type",
-			"enum":[],
+			"if":{
+				"properties":{
+				    "data_type":{
+					"const":"chromatin_3dmodel"
+				    }
+				}
+			    },
+			    "then":{
+				"properties":{
+				    "file_type":{
+					"enum":[
+					    "AMB",
+					    "ANN",
+					    "BAI",
+					    "BAM",
+					    "BB",
+					    "BED",
+					    "BEDGRAPH",
+					    "BT2",
+					    "BW",
+					    "BWT"
+					]
+				    }
+				}
+			    }
 			"description": "The specific kind of file"
 	},
         "description": {
