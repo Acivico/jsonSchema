@@ -1,10 +1,125 @@
 {
     "id": "",
     "$schema": "http://json-schema.org/draft-04/schema#",
-    "title": "VRE-DEV Schema Metadata",
+    "title": "VRE-DEV Schema file data",
     "description": "",
     "type": "object",
-    "properties": {  
+    "properties": {
+        "name": {
+            "type": "string",
+            "description": "A string that can be used to name",
+            "readOnly": true,
+            "title": "Name"
+        },
+        "size": {
+            "type": "int",
+            "description": "For blobs, the blob size in bytes. For bundles, the cumulative size, in bytes, of directory",
+            "readOnly": true,
+            "title": "Size"
+        },
+        "atime": {
+            "type": "string",
+            "format": "date-time",
+            "title": "Creation time",
+            "description": "Timestamp of content creation",
+            "readOnly": true
+        },
+        "mtime": {
+            "type": "string",
+            "format": "data-time",
+            "title": "Modification time",
+            "description": "Timestamp of content update",
+            "readOnly": true
+        },
+        "checksums": {
+            "type": "array",
+            "minItems": 1,
+            "properties": {
+                "checksum":{
+                    "type":"string"
+                },
+                "type":{
+                    "type":"string",
+                    "enum": [
+                        "sha-256",
+                        "sha-256-128",
+                        "sha-256-120",
+                        "sha-256-96",
+                        "sha-256-64",
+                        "sha-256-32",
+                        "sha-384",
+                        "sha-512",
+                        "sha3-224",
+                        "sha3-256",
+                        "sha3-384",
+                        "sha3-512"
+                    ]
+                }
+            },
+            "description": "The hex-string encoded checksum for the data",
+            "title": "Checksums",
+            "readOnly": true
+        },
+        "path": {
+            "type": "string",
+            "description": "A full file path",
+            "title": "Path",
+            "readOnly": true
+        },
+        "files": {
+            "type" : "array",
+            "items": {
+                "type" : "string"
+            },
+            "description": "Contents",
+            "title": "Files"
+        },
+        "parentDir":{
+            "type":"string",
+            "description": "Parent directory of file",
+            "title": "Parent Directory",
+            "readOnly" : true
+        },
+        "type": {
+            "type": "string",
+            "enum": [
+                "file",
+                "dir"
+            ],
+            "description": "Type if it is directory or file",
+            "title": "Type"
+        },
+        "project": {
+            "type": "string",
+            "readOnly": true,
+            "description": "_____TODO_____",
+            "title": "Project"
+        },
+        "owner":{
+            "type":"string",
+            "readOnly":true,
+            "description": "The owner of the file/directory",
+            "title": "Owner"
+        },
+        "expiration":{
+            "type":"string",
+            "format":"date-time",
+            "readOnly":true,
+            "description": "Timestamp of content expires",
+            "title": "Expiration"
+        },
+        "source_url": {
+			"type": "string",
+			"format": "uri",
+            "description": "______TODO______",
+            "title": "Source URL"
+		},
+        "uri" : {
+            "type" : "string",
+            "format" : "uri",
+            "description": "",
+            "title": "URI"
+        },
         "data_type": {
 			"type": "string",
 			"enum": [
@@ -132,11 +247,58 @@
 			"description": "Data type to which the file belongs",
 			"title": "Data type"
 		},
-	"file_type": {
+        "file_type": {
 			"type": "string",
+			"enum": [
+				"null",
+				"AMB",
+				"ANN",
+				"BAI",
+				"BAM",
+				"BB",
+				"BED",
+				"BEDGRAPH",
+				"BT2",
+				"BW",
+				"BWT",
+				"CPT",
+				"CSV",
+				"DCD",
+				"FASTA",
+				"FASTQ",
+				"GEM",
+				"GFF",
+				"GFF3",
+				"GTF",
+				"HDF5",
+				"IDX",
+				"JSON",
+				"LIF",
+				"MDCRD",
+				"NETCDF",
+				"PAC",
+				"PARMTOP",
+				"PDB",
+				"PDF",
+				"PICKLE",
+				"PNG",
+				"RDATA",
+				"RST",
+				"SA",
+				"TAR",
+				"TBI",
+				"TIFF",
+				"TOP",
+				"TPR",
+				"TSV",
+				"TXT",
+				"VCF",
+				"WIG",
+				"XTC"
+			],
 			"title": "File type",
 			"description": "The specific kind of file"
-	},
+		},
         "description": {
 			"type": "string",
 			"description": "A human readable description of the file",
@@ -188,31 +350,6 @@
 			],
 			"description": "____TODO____",
 			"title": "Protected"
-        }
-    },
-    "if":{
-        "properties":{
-            "data_type":{
-                "const":"chromatin_3dmodel"
-            }
-        }
-    },
-    "then":{
-        "properties":{
-            "file_type":{
-                "enum":[
-                    "AMB",
-                    "ANN",
-                    "BAI",
-                    "BAM",
-                    "BB",
-                    "BED",
-                    "BEDGRAPH",
-                    "BT2",
-                    "BW",
-                    "BWT"
-                ]
-            }
         }
     }
 }
