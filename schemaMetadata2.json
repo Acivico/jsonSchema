@@ -12,7 +12,7 @@
             "title": "Name"
         },
         "size": {
-            "type": "int",
+            "type": "integer",
             "description": "For blobs, the blob size in bytes. For bundles, the cumulative size, in bytes, of directory",
             "readOnly": true,
             "title": "Size"
