@@ -1,7 +1,7 @@
 {
     "id": "",
     "$schema": "http://json-schema.org/draft-07/schema#",
-    "title": "VRE-DEV Schema file data",
+    "title": "VRE-DEV Schema",
     "description": "",
     "type": "object",
     "properties": {
