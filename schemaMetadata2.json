@@ -8,10 +8,10 @@
 		"data_type":{
 			"oneOf":[
 				{
-					"$ref" : "#definitions/chromatin_3dmodel"
+					"$ref" : "#/definitions/chromatin_3dmodel"
 				},
 				{
-					"$ref" : "#definitions/chromatin_3dmodel_ensemble"
+					"$ref" : "#/definitions/chromatin_3dmodel_ensemble"
 				}
 			]
 		},
@@ -50,7 +50,7 @@
 	},
 	"properties": {
 		"data_type":{
-			"$ref":"#definitions/data_type"
+			"$ref":"#/definitions/data_type"
 		}
 	}
 }
