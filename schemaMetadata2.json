@@ -5,6 +5,10 @@
     "description": "",
     "type": "object",
     "properties": {
+	"_id":{
+	    "type":"integer",
+	    "readOnly": true 
+	},
         "name": {
             "type": "string",
             "description": "A string that can be used to name",
