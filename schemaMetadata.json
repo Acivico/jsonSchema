@@ -1,360 +1,470 @@
 {
-    "id": "",
-    "$schema": "http://json-schema.org/draft-07/schema#",
-    "title": "VRE-DEV Schema file data",
-    "description": "",
-    "type": "object",
-    "properties": {
-	"_id":{
-	    "type":"integer",
-	    "title":"ID",
-	    "readOnly": true 
-	},
-        "name": {
-            "type": "string",
-            "description": "A string that can be used to name",
-            "readOnly": true,
-            "title": "Name"
+  "$id": "http://openvre.bsc.es/metadata/schema",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "VRE-DEV Schema file data",
+  "description": "",
+  "type": "object",
+  "properties": {
+    "_id": {
+      "type": "string",
+      "title": "VRE identifier",
+      "description": "A string uniquely identifying the VRE ",
+      "pattern": "^[a-z,A-Z]{1,5}(USER|ANON)[0-9]+_[0-9]+$",
+      "readOnly": true
+    },
+    "self_uri": {
+      "type": "string",
+      "title": "Self URI",
+      "description": "____TODO____",
+      "format": "uri",
+      "readOnly": true
+    },
+    "size": {
+      "type": "integer",
+      "title": "Size",
+      "description": "For blobs, the blob size in bytes. For bundles, the cumulative size, in bytes, of directory",
+      "readOnly": true
+    },
+    "atime": {
+      "type": "string",
+      "title": "Creation time",
+      "description": "Timestamp of content creation",
+      "format": "date-time",
+      "readOnly": true
+    },
+    "mtime": {
+      "type": "string",
+      "title": "Modification time",
+      "description": "Timestamp of content update",
+      "format": "data-time",
+      "readOnly": true
+    },
+    "expiration": {
+      "title": "Expiration",
+      "description": "Timestamp of content expiration before authomatic deletion",
+      "anyOf": [
+        {
+          "type": "number",
+          "minimum": -1,
+          "maximum": -1
         },
-        "size": {
-            "type": "integer",
-            "description": "For blobs, the blob size in bytes. For bundles, the cumulative size, in bytes, of directory",
-            "readOnly": true,
-            "title": "Size"
-        },
-        "atime": {
-            "type": "string",
-            "format": "date-time",
-            "title": "Creation time",
-            "description": "Timestamp of content creation",
-            "readOnly": true
-        },
-        "mtime": {
-            "type": "string",
-            "format": "data-time",
-            "title": "Modification time",
-            "description": "Timestamp of content update",
-            "readOnly": true
-        },
-        "checksums": {
-            "type": "array",
-            "minItems": 1,
-            "properties": {
-                "checksum":{
-                    "type":"string"
-                },
-                "type":{
-                    "type":"string",
-                    "enum": [	
-                        "sha-256",
-                        "sha-256-128",
-                        "sha-256-120",
-                        "sha-256-96",
-                        "sha-256-64",
-                        "sha-256-32",
-                        "sha-384",
-                        "sha-512",
-                        "sha3-224",
-                        "sha3-256",
-                        "sha3-384",
-                        "sha3-512"
-                    ]
-                }
-            },
-            "description": "The hex-string encoded checksum for the data",
-            "title": "Checksums",
-            "readOnly": true
-        },
-        "path": {
-            "type": "string",
-            "description": "A full file path",
-            "title": "Path",
-            "readOnly": true
-        },
-        "files": {
-            "type" : "array",
-            "items": {
-                "type" : "string"
-            },
-            "description": "Contents",
-            "title": "Files"
-        },
-        "parentDir":{
-            "type":"string",
-            "description": "Parent directory of file",
-            "title": "Parent Directory",
-            "readOnly" : true
-        },
-        "type": {
+        {
+          "type": "string",
+          "format": "date-time"
+        }
+      ],
+      "readOnly": true
+    },
+    "lastAccess": {
+      "type": "string",
+      "title": "Expiration",
+      "description": "Timestamp of last content access",
+      "format": "date-time",
+      "readOnly": true
+    },
+    "checksums": {
+      "type": "array",
+      "title": "Checksums",
+      "description": "The hex-string encoded checksum for the data",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "properties": {
+          "checksum": {
+            "type": "string"
+          },
+          "type": {
             "type": "string",
             "enum": [
-                "file",
-                "dir"
-            ],
-            "description": "Type if it is directory or file",
-            "title": "Type"
-        },
-        "project": {
-            "type": "string",
-            "readOnly": true,
-            "description": "_____TODO_____",
-            "title": "Project"
-        },
-        "owner":{
-            "type":"string",
-            "readOnly":true,
-            "description": "The owner of the file/directory",
-            "title": "Owner"
-        },
-        "expiration":{
-            "type":"string",
-            "format":"date-time",
-            "readOnly":true,
-            "description": "Timestamp of content expires",
-            "title": "Expiration"
-        },
-        "source_url": {
-			"type": "string",
-			"format": "uri",
-            "description": "______TODO______",
-            "title": "Source URL"
-		},
-        "uri" : {
-            "type" : "string",
-            "format" : "uri",
-            "description": "",
-            "title": "URI"
-        },
-        "data_type": {
-			"type": "string",
-			"enum": [
-				"chromatin_3dmodel",
-				"chromatin_3dmodel_ensemble",
-				"chromatin_compartments",
-				"chromatin_tads",
-				"chromatin_traj",
-				"configuration_file",
-				"data_atac_seq",
-				"data_chip_seq",
-				"data_chic",
-				"data_dna_methylation",
-				"data_fish",
-				"data_mnase_seq",
-				"data_rna_seq",
-				"data_wgbs",
-				"docking_ranking",
-				"hic_biases",
-				"hic_contacts_coverage",
-				"hic_contacts_differential",
-				"hic_contacts_matrix",
-				"hic_contacts_peaks",
-				"hic_directionality",
-				"hic_reads",
-				"hic_sequences",
-				"hic_tads_scale",
-				"md_restart",
-				"na_md_atom_traj_coords",
-				"na_md_atom_traj_top",
-				"na_md_cg_traj",
-				"na_structure",
-				"na_traj",
-				"na_traj_coords",
-				"na_traj_top",
-				"nucleosome_dynamics",
-				"nucleosome_free_regions",
-				"nucleosome_gene_phasing",
-				"nucleosome_positioning",
-				"nucleosome_stiffness",
-				"prot_dna_specificity",
-				"prot_dna_structure",
-				"prot_structure",
-				"chic_matrix",
-				"pchic_matrix",
-				"pchic_scores",
-				"pchAS",
-				"sequence_annotation",
-				"sequence_dna",
-				"sequence_cdna",
-				"sequence_genomic",
-				"sequence_mapping_index_bowtie",
-				"sequence_mapping_index_bwa",
-				"sequence_mapping_index_gem",
-				"sequence_mapping_index_kallisto",
-				"sequence_prot",
-				"sequence_rna",
-				"structure",
-				"tool_intermediate_file",
-				"tool_statistics",
-				"tss_classification_by_nucleosomes"
-			],
-			"options": {
-				"enum_titles": [
-					"Chromatin 3D Model",
-					"Chromatin 3D Model Ensemble",
-					"Chromatin Compartments",
-					"Chromatin Tads",
-					"Chromatin Traj",
-					"Configuration File",
-					"Data Atac Seq",
-					"Data Chip Seq",
-					"Data Chic",
-					"Data DNA Methylation",
-					"Data Fish",
-					"Data Mnase Seq",
-					"Data RNA Seq",
-					"Data Wgbs",
-					"Docking Ranking",
-					"Hic Biases",
-					"Hic Contacts Coverage",
-					"Hic Contacts Differential",
-					"Hic Contacts_matrix",
-					"Hic Contacts_peaks",
-					"Hic Directionality",
-					"Hic Reads",
-					"Hic Sequences",
-					"Hic Tads_scale",
-					"Md Restart",
-					"Na Md Atom Traj Coords",
-					"Na Md Atom Traj Top",
-					"Na Md Cg Traj",
-					"Na Structure",
-					"Na Traj",
-					"Na Traj Coords",
-					"Na Traj Top",
-					"Nucleosome Dynamics",
-					"Nucleosome Free_regions",
-					"Nucleosome Gene_phasing",
-					"Nucleosome Positioning",
-					"Nucleosome Stiffness",
-					"Prot DNA Specificity",
-					"Prot DNA Structure",
-					"Prot Structure",
-					"Chic Matrix",
-					"Pchic Matrix",
-					"Pchic Scores",
-					"PchAS",
-					"Sequence Annotation",
-					"Sequence DNA",
-					"Sequence CDNA",
-					"Sequence Genomic",
-					"Sequence Mapping Index Bowtie",
-					"Sequence Mapping Index Bwa",
-					"Sequence Mapping Index Gem",
-					"Sequence Mapping Index Kallisto",
-					"Sequence Prot",
-					"Sequence RNA",
-					"Structure",
-					"Tool intermediate file",
-					"Tool Statistics",
-					"Classification nucleosomes"
-				]
-			},
-			"description": "Data type to which the file belongs",
-			"title": "Data type"
-		},
-        "file_type": {
-			"type": "string",
-			"enum": [
-				"null",
-				"AMB",
-				"ANN",
-				"BAI",
-				"BAM",
-				"BB",
-				"BED",
-				"BEDGRAPH",
-				"BT2",
-				"BW",
-				"BWT",
-				"CPT",
-				"CSV",
-				"DCD",
-				"FASTA",
-				"FASTQ",
-				"GEM",
-				"GFF",
-				"GFF3",
-				"GTF",
-				"HDF5",
-				"IDX",
-				"JSON",
-				"LIF",
-				"MDCRD",
-				"NETCDF",
-				"PAC",
-				"PARMTOP",
-				"PDB",
-				"PDF",
-				"PICKLE",
-				"PNG",
-				"RDATA",
-				"RST",
-				"SA",
-				"TAR",
-				"TBI",
-				"TIFF",
-				"TOP",
-				"TPR",
-				"TSV",
-				"TXT",
-				"VCF",
-				"WIG",
-				"XTC"
-			],
-			"title": "File type",
-			"description": "The specific kind of file"
-		},
-        "description": {
-			"type": "string",
-			"description": "A human readable description of the file",
-			"title": "Description"
-		},
-        "self_uri" : {
-            		"type":"string",
-            		"format":"uri",
-            		"readOnly":true,
-			"description": "____TODO____",
-			"title": "Self URI"
-		
-        },
-        "version":{
-            		"type":"string",
-			"description": "A string representing a version",
-			"title": "Version"
-        },
-        "mime_type":{
-            		"type":"string",
-			"description": "____TODO____",
-			"title": "Mime type"
-        },
-        "community_specific":{
-			"type":"object",
-			"description": "____TODO____",
-			"title": "Community Specific"
-            
-        },
-        "compressed": {
-			"type": "string",
-			"enum": [
-				"gzip",
-				"zip",
-                		"gz",
-                		"tar",
-                		"rar"
-			],
-			"description": "Type of compression used",
-			"title": "Compressed"
-		},
-        "protected":{
-			"type":"array",
-	    		"items": [
-				{"arguments" : {
-					"type" : "object"
-				}},
-				{"associated_files":""}
-			],
-			"description": "____TODO____",
-			"title": "Protected"
+              "sha-256",
+              "sha-256-128",
+              "sha-256-120",
+              "sha-256-96",
+              "sha-256-64",
+              "sha-256-32",
+              "sha-384",
+              "sha-512",
+              "sha3-224",
+              "sha3-256",
+              "sha3-384",
+              "sha3-512"
+            ]
+          }
         }
+      },
+      "readOnly": true
+    },
+    "path": {
+      "type": "string",
+      "title": "Local Path",
+      "description": "Resource path relative to the App datastore",
+      "format": "uri-reference",
+      "readOnly": true
+    },
+    "url": {
+      "type": "string",
+      "title": "Remote Path (URL)",
+      "description": "Resource access URL",
+      "format": "uri",
+      "readonly": true
+    },
+    "type": {
+      "type": "string",
+      "title": "Type",
+      "description": "Type of VRE data object",
+      "enum": [
+        "file",
+        "dir"
+      ],
+      "default": "file",
+      "const": "file",
+      "readOnly": true
+    },
+    "files": {
+      "type": "array",
+      "title": "Directory contents",
+      "description": "File Identifiers bundled in the directory. Required only if type=dir.",
+      "items": {
+        "type": "string",
+        "pattern": "^[a-z,A-Z]{1,5}(USER|ANON)[0-9]+_[0-9]+$"
+      },
+      "uniqueItems": true,
+      "readOnly": true,
+      "default": []
+    },
+    "parentDir": {
+      "type": "string",
+      "title": "Parent Directory",
+      "description": "Parent directory of file",
+      "pattern": "^[a-z,A-Z]{1,5}(USER|ANON)[0-9]+_[0-9]+$",
+      "readOnly": true
+    },
+    "project": {
+      "type": "string",
+      "title": "Project Name",
+      "description": "_____TODO_____",
+      "pattern": "^PROJ",
+      "readOnly": true
+    },
+    "owner": {
+      "type": "string",
+      "title": "Data Owner",
+      "description": "The owner of the file/directory",
+      "pattern": "^(USER|ANON)[0-9]+$",
+      "readOnly": true
+    },
+	  
+	  
+	  
+	  
+    "description": {
+      "type": "string",
+      "title": "Description",
+      "description": "A human readable description of the file"
+    },
+    "name": {
+      "type": "string",
+      "title": "Name",
+      "description": "A string that can be used to name. Automatically set up as the file basename."
+    },
+    "data_type": {
+      "type": "string",
+      "title": "Data type",
+      "description": "Type of data contained in the data resource",
+      "enum": [
+        "chromatin_3dmodel",
+        "chromatin_3dmodel_ensemble",
+        "chromatin_compartments",
+        "chromatin_tads",
+        "chromatin_traj",
+        "configuration_file",
+        "data_atac_seq",
+        "data_chip_seq",
+        "data_chic",
+        "data_dna_methylation",
+        "data_fish",
+        "data_mnase_seq",
+        "data_rna_seq",
+        "data_wgbs",
+        "docking_ranking",
+        "hic_biases",
+        "hic_contacts_coverage",
+        "hic_contacts_differential",
+        "hic_contacts_matrix",
+        "hic_contacts_peaks",
+        "hic_directionality",
+        "hic_reads",
+        "hic_sequences",
+        "hic_tads_scale",
+        "md_restart",
+        "na_md_atom_traj_coords",
+        "na_md_atom_traj_top",
+        "na_md_cg_traj",
+        "na_structure",
+        "na_traj",
+        "na_traj_coords",
+        "na_traj_top",
+        "nucleosome_dynamics",
+        "nucleosome_free_regions",
+        "nucleosome_gene_phasing",
+        "nucleosome_positioning",
+        "nucleosome_stiffness",
+        "prot_dna_specificity",
+        "prot_dna_structure",
+        "prot_structure",
+        "chic_matrix",
+        "pchic_matrix",
+        "pchic_scores",
+        "pchAS",
+        "sequence_annotation",
+        "sequence_dna",
+        "sequence_cdna",
+        "sequence_genomic",
+        "sequence_mapping_index_bowtie",
+        "sequence_mapping_index_bwa",
+        "sequence_mapping_index_gem",
+        "sequence_mapping_index_kallisto",
+        "sequence_prot",
+        "sequence_rna",
+        "structure",
+        "tool_intermediate_file",
+        "tool_statistics",
+        "tss_classification_by_nucleosomes"
+      ],
+      "options": {
+        "enum_titles": [
+          "Chromatin 3D Model",
+          "Chromatin 3D Model Ensemble",
+          "Chromatin Compartments",
+          "Chromatin Tads",
+          "Chromatin Traj",
+          "Configuration File",
+          "Data Atac Seq",
+          "Data Chip Seq",
+          "Data Chic",
+          "Data DNA Methylation",
+          "Data Fish",
+          "Data Mnase Seq",
+          "Data RNA Seq",
+          "Data Wgbs",
+          "Docking Ranking",
+          "Hic Biases",
+          "Hic Contacts Coverage",
+          "Hic Contacts Differential",
+          "Hic Contacts_matrix",
+          "Hic Contacts_peaks",
+          "Hic Directionality",
+          "Hic Reads",
+          "Hic Sequences",
+          "Hic Tads_scale",
+          "Md Restart",
+          "Na Md Atom Traj Coords",
+          "Na Md Atom Traj Top",
+          "Na Md Cg Traj",
+          "Na Structure",
+          "Na Traj",
+          "Na Traj Coords",
+          "Na Traj Top",
+          "Nucleosome Dynamics",
+          "Nucleosome Free_regions",
+          "Nucleosome Gene_phasing",
+          "Nucleosome Positioning",
+          "Nucleosome Stiffness",
+          "Prot DNA Specificity",
+          "Prot DNA Structure",
+          "Prot Structure",
+          "Chic Matrix",
+          "Pchic Matrix",
+          "Pchic Scores",
+          "PchAS",
+          "Sequence Annotation",
+          "Sequence DNA",
+          "Sequence CDNA",
+          "Sequence Genomic",
+          "Sequence Mapping Index Bowtie",
+          "Sequence Mapping Index Bwa",
+          "Sequence Mapping Index Gem",
+          "Sequence Mapping Index Kallisto",
+          "Sequence Prot",
+          "Sequence RNA",
+          "Structure",
+          "Tool intermediate file",
+          "Tool Statistics",
+          "Classification nucleosomes"
+        ]
+      }
+    },
+    "format": {
+      "type": "string",
+      "title": "File Format",
+      "description": "File Format",
+      "enum": [
+        "null",
+        "AMB",
+        "ANN",
+        "BAI",
+        "BAM",
+        "BB",
+        "BED",
+        "BEDGRAPH",
+        "BT2",
+        "BW",
+        "BWT",
+        "CPT",
+        "CSV",
+        "DCD",
+        "FASTA",
+        "FASTQ",
+        "GEM",
+        "GFF",
+        "GFF3",
+        "GTF",
+        "HDF5",
+        "IDX",
+        "JSON",
+        "LIF",
+        "MDCRD",
+        "NETCDF",
+        "PAC",
+        "PARMTOP",
+        "PDB",
+        "PDF",
+        "PICKLE",
+        "PNG",
+        "RDATA",
+        "RST",
+        "SA",
+        "TAR",
+        "TBI",
+        "TIFF",
+        "TOP",
+        "TPR",
+        "TSV",
+        "TXT",
+        "VCF",
+        "WIG",
+        "XTC"
+      ]
+    },
+    "mime_type": {
+      "type": "string",
+      "title": "Mime type",
+      "description": "____TODO____"
+    },
+    "source_url": {
+      "type": "string",
+      "title": "Source URL",
+      "description": "Reference to the source URL",
+      "format": "uri"
+    },
+    "version": {
+      "type": "string",
+      "title": "Version",
+      "description": "A string representing a version",
+      "default": "1.0"
+    },
+    "visible": {
+      "type": "boolean",
+      "title": "Visible",
+      "description": "Display the data resource at the VRE workspace",
+      "default": true
+    },
+    "compressed": {
+      "title": "Compression",
+      "description": "Type of compression used",
+      "anyOf": [
+        {
+          "type": "boolean"
+        },
+        {
+          "type": "string",
+          "enum": [
+            "gzip",
+            "zip",
+            "gz",
+            "tar",
+            "rar"
+          ]
+        }
+      ],
+      "default": false
+    },
+    "validated": {
+      "type": "boolean",
+      "title": "Valid Metadata",
+      "description": "Indicates if the full set of metadata is valid",
+      "default": false,
+      "readonly": true
+    },
+    "tool": {
+      "type": "string",
+      "title": "Tool (provenance data)",
+      "description": "Provenance metadata. VRE Tool or Process that generated the present data resource.",
+      "readonly": true
+    },
+    "arguments": {
+      "type": "object",
+      "title": "Arguments (provenance data)",
+      "description": "Provenance metadata. Key-value pairs of the arguments set during the VRE process that produced the present data resource. Only applicable if the resource is the result of a VRE process.",
+      "additionalProperties": {
+        "type": [
+          "string",
+          "number",
+          "array"
+        ]
+      },
+      "readonly": true
+    },
+    "input_files": {
+      "type": "array",
+      "title": "Input files (provenance data)",
+      "description": "Provencance Metadata. List of File identidiers feed into the VRE process that generated the present data resource. Only applicable if the resource is the result of a VRE process.",
+      "items": {
+        "type": "string",
+        "pattern": "^[a-z,A-Z]{1,5}(USER|ANON)[0-9]+_[0-9]+$"
+      },
+      "readonly": true
+    },
+    "log_file": {
+      "type": "string",
+      "title": "Log File Path (provenance data)",
+      "description": "Absolute path of the log file generated associated to the VRE process that generated the present data resouce. Only applicable if the resource is the result of a VRE process.",
+      "readonly": true
+    },
+    "submission_file": {
+      "type": "string",
+      "title": "Submission File Path (provenance data)",
+      "description": "Absolute path of the submission file generated associated to the VRE process that generated the present data resouce. Only applicable if the resource is the result of a VRE process.",
+      "readonly": true
+    },
+    "is_a": {
+      "type": "string",
+      "title": "Is a",
+      "description": "Extra specification on the data resource nature",
+      "enum": [
+        "project"
+      ],
+      "readonly": true
+    },
+    "project_type": {
+      "type": "string",
+      "title": "Project Type",
+      "description": "Type of VRE project or workspace. Only applicable if the data resource is_a=project. ",
+      "enum": [
+        "private"
+      ],
+      "readonly": true,
+      "default": "private"
+    },
+    "community_specific": {
+      "title": "Community Specific",
+      "description": "____TODO____",
+      "type": "object"
+    },
+    "protected": {
+      "title": "Protected Properties",
+      "description": "____TODO____",
+      "type": "object"
     }
+  }
 }
