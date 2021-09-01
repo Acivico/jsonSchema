@@ -67,7 +67,7 @@
       "title": "Checksums",
       "description": "The hex-string encoded checksum for the data",
       "minItems": 1,
-      "items": {
+      "": {
         "type": "object",
         "properties": {
           "checksum": {
