@@ -57,7 +57,7 @@
     },
     "lastAccess": {
       "type": "string",
-      "title": "Expiration",
+      "title": "Last Access",
       "description": "Timestamp of last content access",
       "format": "date-time",
       "readOnly": true
