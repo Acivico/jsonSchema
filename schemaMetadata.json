@@ -9,7 +9,7 @@
 		"type": "string",
 		"title": "VRE identifier",
 		"description": "A string uniquely identifying the VRE ",
-		"pattern": "^[a-z,A-Z]{1,5}(USER|ANON)[0-9]+_[0-9]+$",
+		"pattern": "^[a-z,A-Z]{1,5}(USER|ANON)[a-z,0-9]{1,}_[a-z,0-9]{1,}[.][0-9]{1,}$",
 		"readOnly": true
 	  },
 	  "self_uri": {
@@ -126,7 +126,7 @@
 		"description": "File Identifiers bundled in the directory. Required only if type=dir.",
 		"items": {
 		  "type": "string",
-		  "pattern": "^[a-z,A-Z]{1,5}(USER|ANON)[0-9]+_[0-9]+$"
+		  "pattern": "^[a-z,A-Z]{1,5}(USER|ANON)[a-z,0-9]{1,}_[a-z,0-9]{1,}[.][0-9]{1,}$"
 		},
 		"uniqueItems": true,
 		"readOnly": true,
@@ -136,7 +136,7 @@
 		"type": "string",
 		"title": "Parent Directory",
 		"description": "Parent directory of file",
-		"pattern": "^[a-z,A-Z]{1,5}(USER|ANON)[0-9]+_[0-9]+$",
+		"pattern": "^[a-z,A-Z]{1,5}(USER|ANON)[a-z,0-9]{1,}_[a-z,0-9]{1,}[.][0-9]{1,}$",
 		"readOnly": true
 	  },
 	  "project": {
@@ -370,7 +370,7 @@
 		"description": "Provencance Metadata. List of File identidiers feed into the VRE process that generated the present data resource. Only applicable if the resource is the result of a VRE process.",
 		"items": {
 		  "type": "string",
-		  "pattern": "^[a-z,A-Z]{1,5}(USER|ANON)[0-9]+_[0-9]+$"
+		  "pattern": "^[a-z,A-Z]{1,5}(USER|ANON)[a-z,0-9]{1,}_[a-z,0-9]{1,}[.][0-9]{1,}$"
 		},
 		"readonly": true
 	  },
