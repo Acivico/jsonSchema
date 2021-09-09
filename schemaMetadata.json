@@ -36,7 +36,7 @@
 		"type": "string",
 		"title": "Modification time",
 		"description": "Timestamp of content update",
-		"format": "data-time",
+		"format": "date-time",
 		"readOnly": true
 	  },
 	  "expiration": {
