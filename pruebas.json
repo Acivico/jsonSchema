@@ -1,1 +1,67 @@
-
+{
+  "$id": "http://openvre.bsc.es/metadata/schema",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "VRE-DEV Schema file data",
+  "description": "",
+  "type": "object",
+  "properties": {
+    "nextflow_files": {
+      "type": "object",
+      "title": "Nextflow files",
+      "description": "Location of the files implementing the OEB Block.",
+      "properties": {
+        "files": {
+          "type": "object",
+          "title": "Git Files",
+          "description": "The URL of the Git Repository where all files are located.",
+          "properties": {
+            "gitURL": {
+              "type": "string",
+              "title": "Git URL (*)",
+              "description": "Git repository link. There have to be 'main.nf', 'nextflow.config', 'Dockerfile' and '.gitlab-ci.yml'.",
+              "format": "url",
+              "options": {
+                "inputAttributes": {
+                  "placeholder": "Example: https://gitlab.bsc.es/user/repo-with-all-necessary-files.git"
+                }
+              },
+              "minLength": 1
+            },
+            "gitTag": {
+              "type": "string",
+              "title": "Git Commit Sha / Tag / Branch (*)",
+              "minLength": 1,
+              "description": "Git commit_sha/tag/branch where all files are located.",
+              "default": "master"
+            },
+            "folderName": {
+              "type": "string",
+              "pattern": "^[a-zA-Z0-9_-]*$",
+              "title": "Name of GitHub's Folder",
+              "description": "Name of the subfolder that have the files of the block. If block's information are not in a subfolder, DO NOT FILL IT.",
+              "options": {
+                "inputAttributes": {
+                  "placeholder": "DO NOT FILL IT if the files are not in a subfolder."
+                }
+              }
+            },
+            "repositoryToken": {
+              "type": "string",
+              "title": "Repository Deploy Token",
+              "description": "Gitlab repository deploy token.",
+              "options": {
+                "inputAttributes": {
+                  "placeholder": "Example: bHaS234an"
+                }
+              }
+            }
+          },
+          "required": ["gitURL", "gitTag"],
+          "minLength": 1
+        }
+      },
+      "required": ["files"],
+      "additionalProperties": false
+    }
+  }
+}
