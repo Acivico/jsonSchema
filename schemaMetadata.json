@@ -150,7 +150,7 @@
 		"type": "string",
 		"title": "Data Owner",
 		"description": "The owner of the file/directory",
-		"pattern": "^[a-z,A-Z]{1,5}(USER|ANON)[a-z,0-9]{1,}_[a-z,0-9]{1,}[.][0-9]{1,}$",
+		"pattern": "^[a-z,A-Z]{1,5}(USER|ANON)[a-z,0-9]{1,}$",
 		"readOnly": true
 	  },
 		
