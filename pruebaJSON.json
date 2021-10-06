@@ -204,7 +204,11 @@
             "readonly": true,
             "default": "private"
           }
-        }
+        },
+        "additionalProperties": false,
+        "options": {
+        "hidden": true
+      }
       },
       "metadata":{
           "type":"object",
