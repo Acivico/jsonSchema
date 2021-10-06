@@ -5,16 +5,16 @@
   "description": "",
   "type": "object",
   "properties": {
-    "_id": {
-      "type": "string",
-      "title": "VRE identifier",
-      "description": "A string uniquely identifying the VRE ",
-      "pattern": "^[a-z,A-Z]{1,5}(USER|ANON)[a-z,0-9]{1,}_[a-z,0-9]{1,}[.][0-9]{1,}$",
-      "readOnly": true
-    },
     "file": {
       "type": "object",
       "properties": {
+        "_id": {
+          "type": "string",
+          "title": "VRE identifier",
+          "description": "A string uniquely identifying the VRE ",
+          "pattern": "^[a-z,A-Z]{1,5}(USER|ANON)[a-z,0-9]{1,}_[a-z,0-9]{1,}[.][0-9]{1,}$",
+          "readOnly": true
+        },
         "name": {
           "type": "string",
           "title": "Name",
@@ -156,19 +156,59 @@
           "title": "Source URL",
           "description": "Reference to the source URL",
           "format": "uri"
+        },
+        "self_uri": {
+          "type": "string",
+          "title": "Self URI",
+          "description": "____TODO____",
+          "format": "uri",
+          "readOnly": true
+        },
+        "validated": {
+          "type": "boolean",
+          "title": "Valid Metadata",
+          "description": "Indicates if the full set of metadata is valid",
+          "default": false,
+          "readonly": true
+        },
+        "tool": {
+        "type": "string",
+        "title": "Tool (provenance data)",
+          "description": "Provenance metadata. VRE Tool or Process that generated the present data resource.",
+          "readonly": true
+        },
+        "log_file": {
+          "type": "string",
+          "title": "Log File Path (provenance data)",
+          "description": "Absolute path of the log file generated associated to the VRE process that generated the present data resouce. Only applicable if the resource is the result of a VRE process.",
+          "readonly": true
+        },
+        "submission_file": {
+          "type": "string",
+          "title": "Submission File Path (provenance data)",
+          "description": "Absolute path of the submission file generated associated to the VRE process that generated the present data resouce. Only applicable if the resource is the result of a VRE process.",
+          "readonly": true
+        },
+        "is_a": {
+          "type": "string",
+          "title": "Is a",
+          "description": "Extra specification on the data resource nature",
+          "enum": ["project"],
+          "readonly": true
+        },
+        "project_type": {
+          "type": "string",
+          "title": "Project Type",
+          "description": "Type of VRE project or workspace. Only applicable if the data resource is_a=project. ",
+          "enum": ["private"],
+          "readonly": true,
+          "default": "private"
         }
       },
       "additionalProperties": false,
       "options": {
         "hidden": true
       }
-    },
-    "self_uri": {
-      "type": "string",
-      "title": "Self URI",
-      "description": "____TODO____",
-      "format": "uri",
-      "readOnly": true
     },
     "description": {
       "type": "string",
@@ -334,19 +374,6 @@
       ],
       "default": false
     },
-    "validated": {
-      "type": "boolean",
-      "title": "Valid Metadata",
-      "description": "Indicates if the full set of metadata is valid",
-      "default": false,
-      "readonly": true
-    },
-    "tool": {
-      "type": "string",
-      "title": "Tool (provenance data)",
-      "description": "Provenance metadata. VRE Tool or Process that generated the present data resource.",
-      "readonly": true
-    },
     "arguments": {
       "type": "object",
       "title": "Arguments (provenance data)",
@@ -365,33 +392,6 @@
         "pattern": "^[a-z,A-Z]{1,5}(USER|ANON)[a-z,0-9]{1,}_[a-z,0-9]{1,}[.][0-9]{1,}$"
       },
       "readonly": true
-    },
-    "log_file": {
-      "type": "string",
-      "title": "Log File Path (provenance data)",
-      "description": "Absolute path of the log file generated associated to the VRE process that generated the present data resouce. Only applicable if the resource is the result of a VRE process.",
-      "readonly": true
-    },
-    "submission_file": {
-      "type": "string",
-      "title": "Submission File Path (provenance data)",
-      "description": "Absolute path of the submission file generated associated to the VRE process that generated the present data resouce. Only applicable if the resource is the result of a VRE process.",
-      "readonly": true
-    },
-    "is_a": {
-      "type": "string",
-      "title": "Is a",
-      "description": "Extra specification on the data resource nature",
-      "enum": ["project"],
-      "readonly": true
-    },
-    "project_type": {
-      "type": "string",
-      "title": "Project Type",
-      "description": "Type of VRE project or workspace. Only applicable if the data resource is_a=project. ",
-      "enum": ["private"],
-      "readonly": true,
-      "default": "private"
     },
     "community_specific": {
       "title": "Community Specific",
