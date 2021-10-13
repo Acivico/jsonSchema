@@ -381,7 +381,10 @@
       "additionalProperties": {
         "type": ["string", "number", "array"]
       },
-      "readonly": true
+      "readonly": true,
+      "options": {
+        "hidden": true
+      }
     },
     "input_files": {
       "type": "array",
@@ -391,17 +394,26 @@
         "type": "string",
         "pattern": "^[a-z,A-Z]{1,5}(USER|ANON)[a-z,0-9]{1,}_[a-z,0-9]{1,}[.][0-9]{1,}$"
       },
-      "readonly": true
+      "readonly": true,
+      "options": {
+        "hidden": true
+      }
     },
     "community_specific": {
       "title": "Community Specific",
       "description": "____TODO____",
-      "type": "object"
+      "type": "object",
+      "options": {
+        "hidden": true
+      }
     },
     "protected": {
       "title": "Protected Properties",
       "description": "____TODO____",
-      "type": "object"
+      "type": "object",
+      "options": {
+        "hidden": true
+      }
     }
   },
   "allOf": [
