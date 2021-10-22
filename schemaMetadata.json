@@ -416,6 +416,7 @@
       }
     }
   },
+  "additionalProperties": false,
   "allOf": [
     {
       "if": {
