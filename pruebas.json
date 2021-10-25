@@ -2,51 +2,6 @@
   "$id": "http://openvre.bsc.es/metadata/schema",
   "$schema": "http://json-schema.org/draft-07/schema#",
   "type": "object",
-  "properties": {
-    "file": {
-      "type": "object",
-      "properties": {
-        "_id": {
-          "type": "string",
-          "title": "VRE identifier",
-          "description": "A string uniquely identifying the VRE ",
-          "pattern": "^[a-z,A-Z]{1,5}(USER|ANON)[a-z,0-9]{1,}_[a-z,0-9]{1,}[.][0-9]{1,}$",
-          "readOnly": true
-        },
-        "size": {
-          "type": "integer",
-          "title": "Size",
-          "description": "For blobs, the blob size in bytes. For bundles, the cumulative size, in bytes, of directory",
-          "readOnly": true
-        },
-        "atime": {
-          "type": "string",
-          "title": "Creation time",
-          "description": "Timestamp of content creation",
-          "format": "date-time",
-          "readOnly": true
-        },
-        "ETC"
-        
-        "additionalProperties": false,
-        "options": {
-          "hidden": true
-        }
-      },
-      "description": {
-        "type": "string",
-        "title": "Description",
-        "description": "A human readable description of the file"
-      },
-      "version": {
-        "type": "string",
-        "title": "Version",
-        "description": "A string representing a version",
-        "default": "1.0"
-      }
-      "ETC"
-      
-    },
-    "additionalProperties": false
-  }
+  "$ref": "https://raw.githubusercontent.com/Acivico/jsonSchema/main/metadata.json",
+  "$ref": "https://raw.githubusercontent.com/Acivico/jsonSchema/main/fileData.json"
 }
