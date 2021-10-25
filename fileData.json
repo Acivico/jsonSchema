@@ -1,0 +1,216 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.com/product.schema.json",
+  "title": "VRE",
+  "description": "",
+  "type": "object",
+  "properties": {
+    "_id": {
+      "type": "string",
+      "title": "VRE identifier",
+      "description": "A string uniquely identifying the VRE ",
+      "pattern": "^[a-z,A-Z]{1,5}(USER|ANON)[a-z,0-9]{1,}_[a-z,0-9]{1,}[.][0-9]{1,}$",
+      "readOnly": true
+    },
+    "name": {
+      "type": "string",
+      "title": "Name",
+      "description": "A string that can be used to name. Automatically set up as the file basename."
+    },
+    "size": {
+      "type": "integer",
+      "title": "Size",
+      "description": "For blobs, the blob size in bytes. For bundles, the cumulative size, in bytes, of directory",
+      "readOnly": true
+    },
+    "atime": {
+      "type": "string",
+      "title": "Creation time",
+      "description": "Timestamp of content creation",
+      "format": "date-time",
+      "readOnly": true
+    },
+    "mtime": {
+      "type": "string",
+      "title": "Modification time",
+      "description": "Timestamp of content update",
+      "format": "date-time",
+      "readOnly": true
+    },
+    "expiration": {
+      "title": "Expiration",
+      "description": "Timestamp of content expiration before authomatic deletion",
+      "anyOf": [
+        {
+          "type": "number",
+          "minimum": -1,
+          "maximum": -1
+        },
+        {
+          "type": "string",
+          "format": "date-time"
+        }
+      ],
+      "readOnly": true
+    },
+    "lastAccess": {
+      "type": "string",
+      "title": "Last Access",
+      "description": "Timestamp of last content access",
+      "format": "date-time",
+      "readOnly": true
+    },
+    "checksums": {
+      "type": "array",
+      "title": "Checksums",
+      "description": "The hex-string encoded checksum for the data",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "properties": {
+          "checksum": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string",
+            "enum": [
+              "sha-256",
+              "sha-256-128",
+              "sha-256-120",
+              "sha-256-96",
+              "sha-256-64",
+              "sha-256-32",
+              "sha-384",
+              "sha-512",
+              "sha3-224",
+              "sha3-256",
+              "sha3-384",
+              "sha3-512"
+            ]
+          }
+        }
+      },
+      "readOnly": true
+    },
+    "path": {
+      "type": "string",
+      "title": "Local Path",
+      "description": "Resource path relative to the App datastore",
+      "format": "uri-reference",
+      "readOnly": true
+    },
+    "url": {
+      "type": "string",
+      "title": "Remote Path (URL)",
+      "description": "Resource access URL",
+      "format": "uri",
+      "readonly": true
+    },
+    "type": {
+      "type": "string",
+      "title": "Type",
+      "description": "Type of VRE data object",
+      "enum": [
+        "file",
+        "dir"
+      ],
+      "default": "file",
+      "const": "file",
+      "readOnly": true
+    },
+    "files": {
+      "type": "array",
+      "title": "Directory contents",
+      "description": "File Identifiers bundled in the directory. Required only if type=dir.",
+      "items": {
+        "type": "string",
+        "pattern": "^[a-z,A-Z]{1,5}(USER|ANON)[a-z,0-9]{1,}_[a-z,0-9]{1,}[.][0-9]{1,}$"
+      },
+      "uniqueItems": true,
+      "readOnly": true,
+      "default": []
+    },
+    "parentDir": {
+      "type": "string",
+      "title": "Parent Directory",
+      "description": "Parent directory of file",
+      "pattern": "^[a-z,A-Z]{1,5}(USER|ANON)[a-z,0-9]{1,}_[a-z,0-9]{1,}[.][0-9]{1,}$",
+      "readOnly": true
+    },
+    "project": {
+      "type": "string",
+      "title": "Project Name",
+      "description": "_____TODO_____",
+      "pattern": "^__PROJ",
+      "readOnly": true
+    },
+    "owner": {
+      "type": "string",
+      "title": "Data Owner",
+      "description": "The owner of the file/directory",
+      "pattern": "^[a-z,A-Z]{1,5}(USER|ANON)[a-z,0-9]{1,}$",
+      "readOnly": true
+    },
+    "source_url": {
+      "type": "string",
+      "title": "Source URL",
+      "description": "Reference to the source URL",
+      "format": "uri"
+    },
+    "self_uri": {
+      "type": "string",
+      "title": "Self URI",
+      "description": "____TODO____",
+      "format": "uri",
+      "readOnly": true
+    },
+    "validated": {
+      "type": "boolean",
+      "title": "Valid Metadata",
+      "description": "Indicates if the full set of metadata is valid",
+      "default": false,
+      "readonly": true
+    },
+    "tool": {
+      "type": "string",
+      "title": "Tool (provenance data)",
+      "description": "Provenance metadata. VRE Tool or Process that generated the present data resource.",
+      "readonly": true
+    },
+    "log_file": {
+      "type": "string",
+      "title": "Log File Path (provenance data)",
+      "description": "Absolute path of the log file generated associated to the VRE process that generated the present data resouce. Only applicable if the resource is the result of a VRE process.",
+      "readonly": true
+    },
+    "submission_file": {
+      "type": "string",
+      "title": "Submission File Path (provenance data)",
+      "description": "Absolute path of the submission file generated associated to the VRE process that generated the present data resouce. Only applicable if the resource is the result of a VRE process.",
+      "readonly": true
+    },
+    "is_a": {
+      "type": "string",
+      "title": "Is a",
+      "description": "Extra specification on the data resource nature",
+      "enum": [
+        "project"
+      ],
+      "readonly": true
+    },
+    "project_type": {
+      "type": "string",
+      "title": "Project Type",
+      "description": "Type of VRE project or workspace. Only applicable if the data resource is_a=project. ",
+      "enum": [
+        "private"
+      ],
+      "readonly": true,
+      "default": "private"
+    }
+  },
+  "additionalProperties": false,
+  "options": {
+    "hidden": true
+  }
+}
