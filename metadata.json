@@ -1,6 +1,7 @@
 {
-  "id": "https://raw.githubusercontent.com/Acivico/jsonSchema/main/metadata.json",
+  "$id": "http://openvre.bsc.es/metadata/schema",
   "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "VRE-DEV Schema file data",
   "type": "object",
   "properties": {
     "description": {
