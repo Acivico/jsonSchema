@@ -1,8 +1,6 @@
 {
   "$id": "http://openvre.bsc.es/metadata/schema",
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "title": "VRE-DEV Schema file data",
-  "description": "",
   "type": "object",
   "properties": {
     "file": {
@@ -14,11 +12,6 @@
           "description": "A string uniquely identifying the VRE ",
           "pattern": "^[a-z,A-Z]{1,5}(USER|ANON)[a-z,0-9]{1,}_[a-z,0-9]{1,}[.][0-9]{1,}$",
           "readOnly": true
-        },
-        "name": {
-          "type": "string",
-          "title": "Name",
-          "description": "A string that can be used to name. Automatically set up as the file basename."
         },
         "size": {
           "type": "integer",
@@ -50,13 +43,7 @@
         "title": "Version",
         "description": "A string representing a version",
         "default": "1.0"
-      },
-      "visible": {
-        "type": "boolean",
-        "title": "Visible",
-        "description": "Display the data resource at the VRE workspace",
-        "default": true
-      },
+      }
       "ETC"
       
     },
