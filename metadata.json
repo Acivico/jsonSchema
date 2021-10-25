@@ -1,0 +1,727 @@
+{
+  "id": "https://raw.githubusercontent.com/Acivico/jsonSchema/main/metadata.json",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "properties": {
+    "description": {
+      "type": "string",
+      "title": "Description",
+      "description": "A human readable description of the file"
+    },
+    "data_type": {
+      "type": "string",
+      "title": "Data type",
+      "description": "Type of data contained in the data resource",
+      "enum": [
+        "bioimage",
+        "configuration_file",
+        "data_atac_seq",
+        "data_chic",
+        "data_rna_seq",
+        "deep_learning_model",
+        "dna_sequence",
+        "image_mask",
+        "machine_learning_features",
+        "parameter_file",
+        "report",
+        "sequence_annotation",
+        "sequence_rna",
+        "tool_statistics",
+        "extended_MAP_file",
+        "sample_information_file",
+        "allele_frequency_report",
+        "component_file",
+        "samples_ambiguous_codes",
+        "genome_annotation",
+        "expression_matrix",
+        "differential_matrix",
+        "annotations",
+        "covariate_matrix",
+        "group_definitions",
+        "study_data",
+        "study_meta_data"
+      ],
+      "options": {
+        "enum_titles": [
+          "Bio Image",
+          "Configuration file",
+          "Data Atac Sequence",
+          "Data chic",
+          "Data RNA Sequence",
+          "Deep learning model",
+          "DNA sequence",
+          "Image mask",
+          "Machine learning features",
+          "Parameter file",
+          "Report",
+          "Sequence annotation",
+          "Sequence rna",
+          "Tool statistics",
+          "Extended MAP file",
+          "Sample information file",
+          "Allele frequency report",
+          "Component file",
+          "Samples ambiguous codes",
+          "Genome annotation",
+          "Expression matrix",
+          "Differential matrix",
+          "Annotations",
+          "Covariate matrix",
+          "Group definitions",
+          "Study data",
+          "Study meta data"
+        ]
+      },
+      "default": "bioimage"
+    },
+    "format": {
+      "type": "string",
+      "title": "File Format",
+      "description": "File Format",
+      "enum": [
+        "null",
+        "AMB",
+        "ANN",
+        "BAI",
+        "BAM",
+        "BB",
+        "BED",
+        "BEDGRAPH",
+        "BT2",
+        "BW",
+        "BWT",
+        "CPT",
+        "CSV",
+        "DICOM",
+        "DCD",
+        "FASTA",
+        "FASTQ",
+        "GEM",
+        "GFF",
+        "GFF3",
+        "GTF",
+        "GZ",
+        "HDF5",
+        "IDX",
+        "JSON",
+        "LOG",
+        "LIF",
+        "MDCRD",
+        "NIFTI",
+        "NETCDF",
+        "PAC",
+        "PARMTOP",
+        "PDB",
+        "PDF",
+        "PICKLE",
+        "PNG",
+        "RDATA",
+        "RST",
+        "RAW",
+        "SA",
+        "TAR",
+        "TBI",
+        "TIFF",
+        "TOP",
+        "TPR",
+        "TSV",
+        "TXT",
+        "VCF",
+        "WIG",
+        "BIM",
+        "FAM",
+        "NOSEX",
+        "XLSX",
+        "XTC",
+        "HTML"
+      ]
+    },
+    "mime_type": {
+      "type": "string",
+      "title": "Mime type",
+      "description": "____TODO____"
+    },
+    "version": {
+      "type": "string",
+      "title": "Version",
+      "description": "A string representing a version",
+      "default": "1.0"
+    },
+    "visible": {
+      "type": "boolean",
+      "title": "Visible",
+      "description": "Display the data resource at the VRE workspace",
+      "default": true
+    },
+    "compressed": {
+      "title": "Compression",
+      "description": "Type of compression used",
+      "anyOf": [
+        {
+          "type": "boolean"
+        },
+        {
+          "type": "string",
+          "enum": [
+            "gzip",
+            "zip",
+            "gz",
+            "tar",
+            "rar"
+          ]
+        }
+      ],
+      "default": false
+    },
+    "arguments": {
+      "type": "object",
+      "title": "Arguments (provenance data)",
+      "description": "Provenance metadata. Key-value pairs of the arguments set during the VRE process that produced the present data resource. Only applicable if the resource is the result of a VRE process.",
+      "additionalProperties": {
+        "type": [
+          "string",
+          "number",
+          "array"
+        ]
+      },
+      "readonly": true,
+      "options": {
+        "hidden": true
+      }
+    },
+    "input_files": {
+      "type": "array",
+      "title": "Input files (provenance data)",
+      "description": "Provencance Metadata. List of File identidiers feed into the VRE process that generated the present data resource. Only applicable if the resource is the result of a VRE process.",
+      "items": {
+        "type": "string",
+        "pattern": "^[a-z,A-Z]{1,5}(USER|ANON)[a-z,0-9]{1,}_[a-z,0-9]{1,}[.][0-9]{1,}$"
+      },
+      "readonly": true,
+      "options": {
+        "hidden": true
+      }
+    },
+    "community_specific": {
+      "title": "Community Specific",
+      "description": "____TODO____",
+      "type": "object",
+      "options": {
+        "hidden": true
+      }
+    },
+    "protected": {
+      "title": "Protected Properties",
+      "description": "____TODO____",
+      "type": "object",
+      "options": {
+        "hidden": true
+      }
+    }
+  },
+  "additionalProperties": false,
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "data_type": {
+            "const": "bioimage"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "format": {
+            "enum": [
+              "NIFTI",
+              "DICOM"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "data_type": {
+            "const": "configuration_file"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "format": {
+            "enum": [
+              "JSON",
+              "TXT",
+              "TSV"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "data_type": {
+            "const": "data_atac_seq"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "format": {
+            "enum": [
+              "FASTQ",
+              "BAM",
+              "BED",
+              "WIG"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "data_type": {
+            "const": "data_chic"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "format": {
+            "enum": [
+              "BED",
+              "FASTQ",
+              "BAM",
+              "TXT",
+              "TAR"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "data_type": {
+            "const": "data_rna_seq"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "format": {
+            "enum": [
+              "FASTQ",
+              "TSV",
+              "HDF5",
+              "BAM",
+              "BED",
+              "BW",
+              "GFF",
+              "GFF3"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "data_type": {
+            "const": "dna_sequence"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "format": {
+            "enum": [
+              "FASTA"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "data_type": {
+            "const": "image_mask"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "format": {
+            "enum": [
+              "NIFTI"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "data_type": {
+            "const": "machine_learning_features"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "format": {
+            "enum": [
+              "CSV"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "data_type": {
+            "const": "parameter_file"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "format": {
+            "enum": [
+              "TXT",
+              "CSV"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "data_type": {
+            "const": "report"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "format": {
+            "enum": [
+              "PDF",
+              "LOG",
+              "HTML"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "data_type": {
+            "const": "sequence_annotation"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "format": {
+            "enum": [
+              "BED",
+              "BB",
+              "BEDGRAPH",
+              "WIG",
+              "BW",
+              "GFF",
+              "GFF3",
+              "GTF",
+              "VCF",
+              "TBI"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "data_type": {
+            "const": "sequence_rna"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "format": {
+            "enum": [
+              "FASTA"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "data_type": {
+            "const": "tool_statistics"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "format": {
+            "enum": [
+              "TAR"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "data_type": {
+            "const": "extended_MAP_file"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "format": {
+            "enum": [
+              "BIM"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "data_type": {
+            "const": "sample_information_file"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "format": {
+            "enum": [
+              "FAM",
+              "CSV"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "data_type": {
+            "const": "allele_frequency_report"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "format": {
+            "enum": [
+              "FAM"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "data_type": {
+            "const": "component_file"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "format": {
+            "enum": [
+              "RAW"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "data_type": {
+            "const": "samples_ambiguous_codes"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "format": {
+            "enum": [
+              "NOSEX"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "data_type": {
+            "const": "genome_annotation"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "format": {
+            "enum": [
+              "BED"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "data_type": {
+            "const": "expression_matrix"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "format": {
+            "enum": [
+              "XLSX"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "data_type": {
+            "const": "differential_matrix"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "format": {
+            "enum": [
+              "XLSX"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "data_type": {
+            "const": "annotations"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "format": {
+            "enum": [
+              "XLSX"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "data_type": {
+            "const": "covariate_matrix"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "format": {
+            "enum": [
+              "XLSX"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "data_type": {
+            "const": "group_definitions"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "format": {
+            "enum": [
+              "XLSX"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "data_type": {
+            "const": "study_data"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "format": {
+            "enum": [
+              "XLSX",
+              "TSV",
+              "CSV"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "data_type": {
+            "const": "study_meta_data"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "format": {
+            "enum": [
+              "XLSX",
+              "TSV",
+              "CSV"
+            ]
+          }
+        }
+      }
+    }
+  ]
+}
