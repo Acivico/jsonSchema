@@ -6,7 +6,7 @@
     "type": "object",
     "basic_file": {
       "allOf": [
-        {"$ref":"basic_file.json#/definitions/basic_file"},
+        {"$ref":"https://raw.githubusercontent.com/Acivico/jsonSchema/main/basic_file.json"},
         {"properties":{
           "log_file":{
             "type":"string",
