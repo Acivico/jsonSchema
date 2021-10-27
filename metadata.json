@@ -1,7 +1,7 @@
 {
   "$id": "http://openvre.bsc.es/metadata/schema",
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "title": "VRE-DEV Schema file data",
+  "title": "VRE-DEV Schema metadata",
   "type": "object",
   "properties": {
     "description": {
