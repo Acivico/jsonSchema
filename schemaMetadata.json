@@ -346,7 +346,7 @@
     "mime_type": {
       "type": "string",
       "title": "Mime type",
-      "description": "mime type"
+      "description": "Mime type"
     },
     "version": {
       "type": "string",
@@ -361,19 +361,12 @@
       "default": true
     },
     "compressed": {
-      "title": "Compression",
+      "title": "Compression type",
       "description": "Type of compression used",
-      "anyOf": [
-        {
-          "type": "boolean"
-        },
-        {
-          "type": "string",
-          "enum": ["gzip", "zip", "gz", "tar", "rar"]
-        }
-      ],
-      "default": false
-    },
+      "type": "string",
+      "enum": ["gzip", "zip", "gz", "tar", "rar", "0"],
+      "default":"gzip"
+     },
     "arguments": {
       "type": "object",
       "title": "Arguments (provenance data)",
