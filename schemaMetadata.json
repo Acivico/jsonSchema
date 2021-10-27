@@ -346,7 +346,7 @@
     "mime_type": {
       "type": "string",
       "title": "Mime type",
-      "description": "____TODO____"
+      "description": "mime type"
     },
     "version": {
       "type": "string",
